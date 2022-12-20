@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/go-well/mqtt-broker/db"
 	"github.com/mochi-co/mqtt/v2"
 	"github.com/mochi-co/mqtt/v2/hooks/auth"
 	"github.com/mochi-co/mqtt/v2/listeners"
@@ -8,6 +9,8 @@ import (
 )
 
 func main() {
+	_ = db.Open(db.Options{})
+
 	// Create the new MQTT Server.
 	server := mqtt.New(nil)
 
